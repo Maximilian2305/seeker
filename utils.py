@@ -20,4 +20,5 @@ def print(ftext, **args):
     if sys.stdout.isatty():
         builtins.print(ftext, flush=True, **args)
     else:
+        # Fixed regex for Python 3.14+ and Render logs
         builtins.print(re.sub(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])', ' ', ftext), flush=True, **args)
